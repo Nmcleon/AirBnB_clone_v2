@@ -54,6 +54,7 @@ class Place(BaseModel, Base):
         amenities = relationship("Amenity", secondary=place_amenity,
                                  viewonly=False,
                                  back_populates="place_amenities")
+        city = relationship("City", backref="places")
     else:
         @property
         def reviews(self):
